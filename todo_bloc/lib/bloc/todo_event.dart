@@ -3,6 +3,8 @@ part of 'todo_bloc.dart';
 @immutable
 sealed class TodoEvent {}
 
+class OnFetchTodo extends TodoEvent {}
+
 class OnAddTodo extends TodoEvent {
   final Todo newTodo;
 

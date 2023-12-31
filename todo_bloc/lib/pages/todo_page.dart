@@ -81,14 +81,20 @@ class _TodoPageState extends State<TodoPage> {
   }
 
   @override
+  void initState() {
+    context.read<TodoBloc>().add(OnFetchTodo());
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Todo'),
       ),
       body: BlocBuilder<TodoBloc, TodoState>(builder: (context, state) {
-        if (state is TodoInitial) return const SizedBox.shrink();
-        if (state is TodoLoading) {
+        if (state.status == TodoStatus.init) return const SizedBox.shrink();
+        if (state.status == TodoStatus.loading) {
           return const Center(
             child: CircularProgressIndicator(),
           );
