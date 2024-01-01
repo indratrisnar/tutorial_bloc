@@ -1,11 +1,9 @@
+import 'package:bloc_fetch_api/bloc/live_game_bloc.dart';
+import 'package:bloc_fetch_api/pages/live_game_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:todo_bloc/bloc/todo_bloc.dart';
-import 'package:todo_bloc/observer/simple_bloc_observer.dart';
-import 'package:todo_bloc/pages/todo_page.dart';
 
 void main() {
-  Bloc.observer = SimpleBlocObserver();
   runApp(const MainApp());
 }
 
@@ -15,9 +13,9 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => TodoBloc(),
+      create: (context) => LiveGameBloc(),
       child: const MaterialApp(
-        home: TodoPage(),
+        home: LiveGamePage(),
       ),
     );
   }

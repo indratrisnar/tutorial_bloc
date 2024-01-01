@@ -1,18 +1,18 @@
-name: todo_bloc
+name: bloc_fetch_api
 description: "A new Flutter project."
-publish_to: "none"
+publish_to: 'none'
 version: 0.1.0
 
 environment:
-  sdk: ">=3.2.3 <4.0.0"
+  sdk: '>=3.2.3 <4.0.0'
 
 dependencies:
-  d_info: ^0.2.2
-  d_input: ^0.1.2
   d_method: ^0.2.3
+  extended_image: ^8.2.0
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.3
+  http: ^1.1.2
 
 dev_dependencies:
   flutter_test:

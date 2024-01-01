@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:d_method/d_method.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -40,5 +41,26 @@ class TodoBloc extends Bloc<TodoEvent, TodoState> {
   FutureOr<void> addTodo(OnAddTodo event, Emitter<TodoState> emit) async {
     Todo newTodo = event.newTodo;
     emit(TodoState([...state.todos, newTodo], TodoStatus.success));
+  }
+
+  @override
+  void onChange(Change<TodoState> change) {
+    // DMethod.logTitle(
+    //   change.currentState.status.toString(),
+    //   change.nextState.status.toString(),
+    // );
+    super.onChange(change);
+  }
+
+  @override
+  void onEvent(TodoEvent event) {
+    // DMethod.log(event.toString());
+    super.onEvent(event);
+  }
+
+  @override
+  void onTransition(Transition<TodoEvent, TodoState> transition) {
+    // DMethod.log(transition.toString());
+    super.onTransition(transition);
   }
 }
